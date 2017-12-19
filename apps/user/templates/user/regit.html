@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">  
+        <title>Registration Form</title>
+        <meta name="description" content="fill_me_in" >
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css " rel="stylesheet">   
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>  
+   </head>
+   <body>
+        <nav id="nav_top" class="navbar navbar-inverse navbar-static-top">
+                <div class="container" id="main_container">
+                        <a class="navbar-brand" href="http://api.jquery.com">Register</a>
+                </div>
+        </nav>
+        <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>Your Information</h3>
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your information with anyone else.</small><br><br>
+                        {% for message in messages %}
+                        <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                          {{ message }}
+                        </div>
+                      {% endfor %}
+                        <form action="register/process" method="post">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1">First Name</label>
+                                  <input type="text" class="form-control" name="fName" placeholder="Enter first name">
+                                </div>
+                                <div class="form-group">
+                                        <label for="exampleInputEmail1">last Name</label>
+                                        <input type="text" class="form-control" name="lName" placeholder="Enter lirst name">
+                                      </div>
+                                <div class="form-group">
+                                        <label for="exampleInputEmail1">Phone Number</label>
+                                        <input type="text" class="form-control" name="pnum" placeholder="xxx-xxx-xxxx">
+                                </div>
+                                <div class="form-group">
+                                                <label for="exampleInputEmail1">DOB</label>
+                                                <input type="date" class="form-control date" name="dob">
+                                </div>
+                               
+                                <div class="form-group">
+                                        <label for="exampleInputEmail1">Email</label>
+                                        <input type="text" class="form-control" name="mail" value="abc@gmail.com">
+                                </div>
+                                <div class="form-group">
+                                        <label for="exampleInputPassword">Password</label><br>
+                                        <small id="emailHelp" class="form-text text-muted">Requires one lower case letter, one upper case letter, one digit, 6-13 length, and no spaces.</small><br><br>
+                                        <input type="password" class="form-control" name="psd1" value="1agdA*$#">
+                                </div>
+                                <div class="form-group">
+                                        <label for="exampleInputPassword">Confirm Password</label>
+                                        <input type="password" class="form-control" name="psd2" value="1agdA*$#">
+                                </div>
+                               
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                        <h3>Back to <a href="/">Log in</a></h3>
+                    </div>
+                    <div class="col-md-6" id="right_main">
+                       
+                    </div>
+                    
+                </div>
+            </div>
+           
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+
+
+            
+        
+   </body>
+</html>
+
+

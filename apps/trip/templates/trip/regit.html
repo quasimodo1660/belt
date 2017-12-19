@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">  
+        <title>Add a Trip</title>
+        <meta name="description" content="fill_me_in" >
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css " rel="stylesheet">   
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>  
+   </head>
+   <body>
+        <nav class="navbar navbar-inverse navbar-static-top">
+                <div class="container">
+                        <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="#">Add a Trip</a>
+                        </div>
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav navbar-right">
+                                        <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hello,{{user.first_name}} {{user.last_name}}<span class="caret"></span></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="/trip">Home</a></li>
+                                                        <li><a href="/logout">Log out</a></li>
+                                                </ul>
+                                        </li>
+                                </ul>
+                        </div>
+                </div>
+        </nav>
+        <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>Add a Trip</h3>
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your information with anyone else.</small><br><br>
+                        {% for message in messages %}
+                        <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                          {{ message }}
+                        </div>
+                      {% endfor %}
+                        <form action="/trip/add/process" method="post">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1">Destination:</label>
+                                  <input type="text" class="form-control" name="des" placeholder="Enter destination">
+                                </div>
+                                <div class="form-group">
+                                        <label for="exampleInputPassword1">Description:</label>
+                                        <textarea class="form-control" name="content" placeholder="Enter description"></textarea>
+                                </div>
+                                <div class="form-group">
+                                                <label for="exampleInputEmail1">Travel Date From</label>
+                                                <input type="date" class="form-control date" name="dFrom">
+                                </div>
+                                <div class="form-group">
+                                        <label for="exampleInputEmail1">Travel Date To</label>
+                                        <input type="date" class="form-control date" name="dTo">
+                                </div>                             
+                                <button type="submit" class="btn btn-primary">Add</button>
+                        </form>
+                    </div>
+                    <div class="col-md-6" id="right_main">
+                       
+                    </div>
+                    
+                </div>
+            </div>
+           
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+
+
+            
+        
+   </body>
+</html>
+
+
